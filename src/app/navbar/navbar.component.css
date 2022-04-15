@@ -5,11 +5,17 @@
 nav .navbar-brand{
     font-size: 60px;
     margin-left: 31%;
+    color: rebeccapurple;
+    font-weight: bolder;
    
 }
 
 nav .navbar-nav li a{
-    color:#00FFFF;
+    color:rebeccapurple;
     font-weight: bold;
     font-size: 20px;
+    cursor: pointer;
+}
+nav .navbar-nav li a:hover{
+    color: white;
 }
