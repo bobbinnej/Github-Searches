@@ -1,3 +1,16 @@
+/*Import google fonts for poppins font*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;1,400&display=swap');
+/*Global styling for the whole application*/
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Poppins', sans-serif;
+}
+/*Background image for home page*/
 body{
-    margin: 2%;
+    background-image: url(./assets/pexels-skitterphoto-63901.jpg);
+    background-repeat: no-repeat;
+    background-position: contain;
+    background-size: cover;
 }
