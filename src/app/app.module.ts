@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { RepositoryComponent } from './repository/repository.component';
+import { FormComponent } from './form/form.component';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import { RepositoryComponent } from './repository/repository.component';
     HomepageComponent,
     NavbarComponent,
     RepositoryComponent,
+    FormComponent,
  
   ],
   imports: [
