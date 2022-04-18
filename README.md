@@ -1,27 +1,82 @@
-# GithubSearch
+# Github Search
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.1.
+The easiest to connect with other github users is through the Github Search Application created with Angular CLI and jquery for functionality.
 
-## Development server
+<img src="/assets/quotes.png" alt="">
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+By **Jackline Njoroge**
 
-## Code scaffolding
+## Description
+This is simply an application with a home and repositories page. The homepage contains the github profile of you as a user and a view Github repository button which upon clicking takes you to your github account. 
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+The Repository page is where one can search for fellow github users together with alist of their repositories by inputing the desired username and clicking search.
 
-## Build
+## Technologies Used
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- HTML & CSS (Bootstrap)
+- GoogleFonts
+- Font awesome
+- JavaScript 
+- Angular CLI
+- Jquery
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+##### Requirements
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+JSFiddle 
 
-## Further help
+Atom or visual studio editors
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+##### Setup Instructions and Installation
+
+- Clone this repository to a location in your file system.  https://github.com/bobbinnej/Github-Searches
+- Open terminal then navigate to the root folder of the application. `cd quotes`
+- Open `index.html` on your Browser.
+- Navigate the various features of the app.
+
+
+## Behaviour Driven Development
+
+
+BDD focuses on the expected user experience with the app
+
+As the creator i would like the user to:
+
+1. Visit the Github Search website.
+2. The user will be met by a homepage with their profile
+3. The user can then navigate to the repositories page and input the username of the github  
+    user they want to search for.
+4. The expected outcome after clicking search is that the desired users profile and a list of 
+   their repositories will be displayed.The user can then click more and they will be taken to the desired github account and get to see more information in regards to the selected repository.
+
+
+
+
+
+## Development
+
+To fix a bug or enhance an existing module, follow these steps:
+- Fork the repo
+- Create a new branch (git checkout -b improve-feature)
+- Make the appropriate changes in the files
+- Add changes to reflect the changes made
+- Commit your changes (git commit -am 'Improve feature')
+- Push to the branch (git push origin improve-feature)
+- Create a Pull Request
+
+
+## Known Bugs
+
+If you find a bug or would like to request a new function, reach out to me via bobbinnej@gmail.com
+
+
+
+### License
+
+*MIT*
+Copyright (c) 2019 **Jackie Njoroge**
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.

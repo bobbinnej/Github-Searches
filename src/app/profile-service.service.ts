@@ -1,23 +1,32 @@
 import { Injectable } from '@angular/core';
 import { Repository } from './repository';
 import { User } from './user';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import  {environment} from 'src/environments/environment';
-import { PropertyRead } from '@angular/compiler';
+
+// import { PropertyRead, Token } from '@angular/compiler';
+// import 'rxjs/add/observable/fromPromise';
 import { observable } from 'rxjs';
 
+// import axios from 'axios';
+// import { CoreEnvironment } from '@angular/compiler/src/compiler_facade_interface';
+// import { resolve } from 'dns';
+// import { resolve } from 'dns';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class ProfileServiceService {
   // /**I have created object user and repository the assigned them to the User and Repository 
   //  * blueprint classes respectively
+  
   //  */
-  user:User;
-  repository:Repository;
+  
+  user!:User;
+  repository!:any;
 
-  repositoryArray: Repository[]=[];
+  // repositoryArray: Repository[]=[];
  
   // newUser:any
  //  newRepo:any 
@@ -28,7 +37,7 @@ export class ProfileServiceService {
     this.repository=new Repository('','','','');
   }
 
-    profileInformation(search:string){
+    profileInformation(search:string | number){
       interface ApiResponse{
         login:string;
         avatar_url:string,
@@ -42,29 +51,79 @@ export class ProfileServiceService {
 
                
       }
+      let headers= new HttpHeaders({
+        Authorization:'token' + environment.apikey,
+      })
+      let opt={headers:headers}
+      let fullUrl= environment.apiUrl + search;
+      let promise = new Promise((resolve,reject) =>{
+        this.http.get<ApiResponse>(fullUrl,opt).toPromise().then(response=>{
+          this.user.login=response!.login
+          this.user.avatar_url=response!.avatar_url
+          this.user.followers=response!.following
+          this.user.following=response!.following
+          this.user.bio=response!.bio
+          this.user.html_url=response!.html_url
+          this.user.public_repos=response!.public_repos
+
+          console.log(this.user)
+          resolve(null)
+        },
+        error=>{
+          reject(error)
+        })
+        
+      })
+      return promise
     }
 
-    async search(){
-      try{
-        const response=await axios.get(environment.apikey + "bobbinnej",{headers:{"Authorization":environment.apikey}});
-        const repositoryResponse=await axios.get("https://api.github.com/users/bobbinnej/repos");
-        console.log(repositoryResponse.data)
-        console.log(response.data)
-        const expectedResponse=response.data
-        const repositoryResponseArray=repositoryResponse.data
-        this.user.login=expectedResponse.data
-        this.user.avatar_url=expectedResponse.data
-        this.user.bio=expectedResponse.data
-        this.user.followers=expectedResponse.data
-        this.user.following=expectedResponse.data
-        this.user.html_url=expectedResponse.data
-
-        for (const item of repositoryResponseArray){
-          this.repositoryArray.push(new Repository(item.name, item.html_url, item.language, item.description))
-        }
-        console.log(this.repositoryArray)
-      }catch(e){alert(e);}
+    showRepos(username:any){
+      interface ApiResponse{
+        login:string
+        html_url:string,
+        description:string,
+        language:string,
+      }
+      let repoUrl= environment.apiUrl + username +'/repos';
+      let promise=new Promise((resolve,reject )=>{
+        this.http.get<ApiResponse>(repoUrl).toPromise().then(response=>{
+          this.repository=response!
+          
+          console.log(this.repository)
+          resolve(null)
+        },
+        error=>{
+          reject();
+          console.log(error)
+        })
+        
+          
+      });
+      return promise
     }
+  }
+
+    // async search(){
+    //   try{
+    //     const response=await axios.get(environment.apikey + "bobbinnej",{headers:{"Authorization":environment.apikey}});
+    //     const repositoryResponse=await axios.get("https://api.github.com/users/bobbinnej/repos");
+    //     console.log(repositoryResponse.data)
+    //     console.log(response.data)
+    //     const expectedResponse=response.data
+    //     const repositoryResponseArray=repositoryResponse.data
+    //     this.user.login=expectedResponse.data
+    //     this.user.avatar_url=expectedResponse.data
+    //     this.user.bio=expectedResponse.data
+    //     this.user.followers=expectedResponse.data
+    //     this.user.following=expectedResponse.data
+    //     this.user.html_url=expectedResponse.data
+
+    //     for (const item of repositoryResponseArray){
+    //       this.repositoryArray.push(new Repository(item.name, item.html_url, item.language, item.description))
+    //     }
+    //     console.log(this.repositoryArray)
+    //   }catch(e){alert(e);}
+    // }
 
 
   //   this.user=new User('','','','','','','','',new Date);
@@ -104,4 +163,4 @@ export class ProfileServiceService {
   // }
 
 
-}
+

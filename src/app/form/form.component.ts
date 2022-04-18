@@ -7,6 +7,11 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent implements OnInit {
+  searchTerm?:string;
+  @Output() searchProfile=new EventEmitter<any>();
+  searchUser(){
+    this.searchProfile.emit(this.searchTerm)
+  }
    
   constructor() { }
 

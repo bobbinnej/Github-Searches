@@ -10,6 +10,7 @@ export class User {
         public bio:string,       
         public html_url:string,
         public public_repos:string,
+        
         // public repo_url:string,
         // public repos_url:string,
         // public fname_string:string,
