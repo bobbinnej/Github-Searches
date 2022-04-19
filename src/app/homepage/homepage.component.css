@@ -19,4 +19,5 @@
 .black:hover{
     background-color: bisque;
     color:black;
+    border: 1px solid black;
 }
