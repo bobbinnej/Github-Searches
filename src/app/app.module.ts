@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
 import { ProfileServiceService } from './profile-service.service';
+import { TimePipe } from './time.pipe';
 // import { Observable } from 'rxjs';
 
 
@@ -24,6 +25,7 @@ import { ProfileServiceService } from './profile-service.service';
     NavbarComponent,
     RepositoryComponent,
     FormComponent,
+    TimePipe,
  
   ],
   imports: [
